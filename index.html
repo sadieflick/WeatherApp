@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Weather App</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript">
+		$(document).ready(function(){
+
+            function kelvinToFahrenheit(kelvin) {
+                var fahrenheit = kelvin * (9/5) - 459.67;
+                return fahrenheit;
+            }
+
+
+            $('#searchBar').submit(function() {
+
+                // Get search value, convert to query format
+                var searchStr = $("input").val();
+                searchStr = searchStr.replace(/\s+/g, '+');
+                var targetURL = "http://api.openweathermap.org/data/2.5/weather?q="+searchStr+"&&appid=51aed6f0878d68b623500c8bd6606083";
+
+                $.get(targetURL, function(res) {
+                    console.log(res);
+                    // Write results to html to display to user
+                    var weatherString = "<h1>" + res.name + "</h1>";
+                    var temp = Math.round(kelvinToFahrenheit(res.main.temp));
+                    weatherString += "<h3>Tempurature: "+temp+"</h3>";
+                    $(weatherOutput).html(weatherString);
+                }, 'json');
+
+                //So the page doesn't refresh...
+                return false;
+            });
+		});
+        </script>
+        
+	</head>
+	<body>
+		<div id="wrapper">
+
+            <div id="topBar">
+                <form id="searchBar">
+                    <input type="text" id="search" name="search" placeholder="City">
+                    <input type="submit" id="searchButton" value="Search">
+                </form>
+            </div>
+
+            <div id=weatherOutput>
+            </div>
+            
+        </div><!--end of wrapper-->
+	</body>
+</html>

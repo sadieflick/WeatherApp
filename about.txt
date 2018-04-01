@@ -1,0 +1,3 @@
+This is a weather app to practice API and AJAX usage.
+API key:
+51aed6f0878d68b623500c8bd6606083

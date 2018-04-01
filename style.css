@@ -1,0 +1,43 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper {
+    width: 800px;
+    margin: 0 auto;
+    background: white;
+    text-align: center;
+}
+#topBar {
+    display: block;
+    padding: 30px;
+    background-image: url("weather.jpg");
+    background-size: 800px;
+}
+#searchBar {
+    display: inline-block;
+    text-align: center;
+    box-sizing: border-box;
+}
+#search {
+    padding: 5px 15px;
+}
+#searchButton {
+    padding: 5px 15px;
+    color: white;
+    border: 0px;
+    border-radius: 10px;
+    background-color: #1468A8; /* darker / blue: #2E638A */
+	-moz-box-shadow: inset 0px 40px 0px -20px #1788D0;
+	-webkit-box-shadow: inset 0px 40px 0px -20px #1788D0;
+	box-shadow: inset 0px 40px 0px -20px #1788D0;
+}
+#weatherOutput{
+    display: block;
+    width: 800px;
+    border-top: 3px solid darkslategrey;
+}
+#weatherOutput h1 {
+    padding: 15px;
+}
